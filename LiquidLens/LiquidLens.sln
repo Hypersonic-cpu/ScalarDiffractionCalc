@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LiquidLens", "LiquidLens.fsproj", "{DCC4DA10-3BA1-42BB-9E24-AD420DF10D53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCC4DA10-3BA1-42BB-9E24-AD420DF10D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCC4DA10-3BA1-42BB-9E24-AD420DF10D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCC4DA10-3BA1-42BB-9E24-AD420DF10D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCC4DA10-3BA1-42BB-9E24-AD420DF10D53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E7E35B6-4202-43F0-9F36-E85D087AD065}
+	EndGlobalSection
+EndGlobal
