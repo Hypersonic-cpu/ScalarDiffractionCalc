@@ -8,4 +8,3 @@ Scalar diffraction calc using Angular Spectrum Method.
 let MKLProviderPath = "/folder/of/MKL-Provider-lib"
 ```
 如果不在 Intel 处理器上运行, 似乎不需要 MKL, 可以新建一个 branch 删掉这些.
-
