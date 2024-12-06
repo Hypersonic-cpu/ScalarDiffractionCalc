@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <Compile Include="Discrete.fs" />
-    <Compile Include="Surface.fs" />
     <Compile Include="Optics.fs" />
     <Compile Include="Library.fs" />
   </ItemGroup>
@@ -27,7 +26,7 @@
     <PackageReference Include="MathNet.Numerics.FSharp" Version="5.0.0" />
     <PackageReference Include="MathNet.Numerics.MKL.Win-x64" Version="3.0.0" />
     <PackageReference Include="MathNet.Numerics.Providers.MKL" Version="5.0.0" />
-    <PackageReference Include="Plotly.NET" Version="5.0.0" />
+    <PackageReference Include="Plotly.NET" Version="5.1.0" />
     <PackageReference Include="Plotly.NET.ImageExport" Version="6.0.0" />
     <PackageReference Include="Plotly.NET.Interactive" Version="5.0.0" />
   </ItemGroup>

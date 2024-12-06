@@ -1,20 +1,20 @@
-﻿#I "C:/Users/74674/.nuget/ref/"
-#load "MathNet.fsx"
-#load "Plotly.NET.fsx"
-;;
-#load "Library.fs"
-#load "Discrete.fs"
-#load "Optics.fs"
-#load "Surface.fs"
-;;
+﻿#load "../LibLoader.fsx"
+#load "../MklLoader.fsx"
+
 open MathNet.Numerics
 open MathNet.Numerics.LinearAlgebra
 open MathNet.Numerics.IntegralTransforms
-open MathNet.Numerics.Data.Matlab
 open Plotly.NET
 open Plotly.NET.LayoutObjects
+open MathNet.Numerics.Data.Matlab
 
-open LiquidLens.Surface
+Control.NativeProviderPath <- MklLoader.MKLProviderPath
+Control.UseNativeMKL()
+
+#load "Library.fs"
+#load "Discrete.fs"
+#load "Optics.fs"
+
 open LiquidLens.Discrete
 open LiquidLens.Optics
 
@@ -27,20 +27,12 @@ let round (x:float) (n:int) = System.Math.Round(x,n)
 let deg rad = rad / pi * 180.
 let rad deg = deg / 180. * pi
 (* Segment 0. Parameters *)
-
-;;
-Control.NativeProviderPath <- @"C:\Users\74674\.nuget\packages\mathnet.numerics.mkl.win-x64\3.0.0\runtimes\win-x64\native\";;
-Control.UseNativeMKL()
 ;;
 
 (* Plot *)
 let oResize (mat:Matrix<complex>) =
     let N = mat.ColumnCount
     Array2D.init (N/8-1) (N/8-1) (fun i j -> mat.[8*i+4, 8*j+4])
-    |> Matrix.Build.DenseOfArray
-let qResize (mat:Matrix<complex>) =
-    let N = mat.ColumnCount
-    Array2D.init (N/4-1) (N/4-1) (fun i j -> mat.[N/2 + (i-N/8) * 4, N/2 + (j-N/8) * 4])
     |> Matrix.Build.DenseOfArray
 let plotPhase (name:string) (mat:Matrix<complex>) =
     Chart.Heatmap(
@@ -135,17 +127,3 @@ for uDis in [| 26.*mm .. 3.*mm .. 35.*mm|] do
     solvePSF 4900 uDis 0. 6400 true
 // solvePSF 4900 (27.4*mm) (0.*um) 6400 true
 #quit;;
-
-// let RADIUS = 3200
-// let uDis =
-//     let fileName = $"D:/MatlabDrive/LiqLens/Data/0F-Drop-{RADIUS}.mat"
-//     // let aperture = float RADIUS * um
-//     let curvatureC:float = 
-//         let pC = MatlabReader.Read(fileName, "p_c").[0,0]
-//         pC / Phys.Gamma / 2.
-//     2.0 * ( curvatureC*(nWater-1.) )**(-1.)
-// let M = 6400
-// let bDis = uDis * tan (vector [|0.00..0.02..0.08|])
-// for bias in bDis do
-//     solvePSF RADIUS uDis bias M true
-// #quit

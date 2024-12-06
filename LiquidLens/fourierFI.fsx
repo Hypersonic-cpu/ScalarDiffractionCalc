@@ -1,6 +1,5 @@
-#I "C:/Users/74674/.nuget/ref/"
-#load "MathNet.fsx"
-#load "Plotly.NET.fsx"
+#load "../LibLoader.fsx"
+#load "../MklLoader.fsx"
 
 open MathNet.Numerics
 open MathNet.Numerics.LinearAlgebra
@@ -8,7 +7,7 @@ open MathNet.Numerics.IntegralTransforms
 open Plotly.NET
 open Plotly.NET.LayoutObjects
 
-Control.NativeProviderPath <- @"C:\Users\74674\.nuget\packages\mathnet.numerics.mkl.win-x64\3.0.0\runtimes\win-x64\native\";;
+Control.NativeProviderPath <- MklLoader.MKLProviderPath
 Control.UseNativeMKL()
 let pi = System.Math.PI
 let J_ = complex 0. 1.

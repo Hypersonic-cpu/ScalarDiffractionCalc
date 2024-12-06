@@ -1,6 +1,6 @@
-#I "C:/Users/74674/.nuget/ref/"
-#load "MathNet.fsx"
-#load "Plotly.NET.fsx"
+#load "../LibLoader.fsx"
+#load "../MklLoader.fsx"
+
 #load "Discrete.fs"
 #load "Optics.fs"
 
@@ -11,11 +11,12 @@ open MathNet.Numerics.Data.Matlab
 open Plotly.NET
 open Plotly.NET.LayoutObjects
 
+Control.NativeProviderPath <- MklLoader.MKLProviderPath
+Control.UseNativeMKL()
+
 open LiquidLens.Optics
 open LiquidLens.Discrete
 
-Control.NativeProviderPath <- @"C:\Users\74674\.nuget\packages\mathnet.numerics.mkl.win-x64\3.0.0\runtimes\win-x64\native\";;
-Control.UseNativeMKL()
 let pi = System.Math.PI
 let J_ = complex 0. 1.
 ;;
